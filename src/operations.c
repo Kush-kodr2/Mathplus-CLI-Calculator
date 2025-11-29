@@ -318,7 +318,7 @@ void age_calc()
 
     fakeLoading2();
     // leap year
-    if (bir_year % 4 == 0 && bir_year % 100 != 0 || bir_year % 400 == 0)
+    if (curr_year % 4 == 0 && curr_year % 100 != 0 || curr_year % 400 == 0)
     {
         month_days[2] = 29;
     }
@@ -326,7 +326,7 @@ void age_calc()
     if (curr_month < bir_month)
     {
         age_year = curr_year - bir_year - 1;
-        age_month = bir_month - curr_month;
+        age_month = 12 - (bir_month - curr_month);
     }
     else if (curr_month > bir_month)
     {
@@ -346,7 +346,7 @@ void age_calc()
     else if (curr_date < bir_date)
     {
         // age_day = 30 - bir_date + curr_date;
-        age_day = month_days[bir_month] - bir_date + curr_date;
+        age_day = month_days[curr_month - 1] - bir_date + curr_date;
         age_month -= 1;
     }
 
@@ -412,9 +412,8 @@ void leap_yr_check()
 }
 void QuadraticEqSolver()
 {
-    printf("Work in progress, full version will be available soon...\n");
     int a, b, c;
-    printf("Enter the values of a,b and c:- ");
+    printf("Enter the values of a, b and c:- ");
     printf("a :- ");
     scanf("%d", &a);
     printf("b :- ");

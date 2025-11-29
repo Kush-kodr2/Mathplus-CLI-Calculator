@@ -136,7 +136,6 @@ int main()
                             prev_type = NONE;
                         case 12:
                             QuadraticEqSolver();
-                            break;
                             prev_type = NONE;
 
                         default:
@@ -365,7 +364,22 @@ int main()
         {
             printf("You have chosen QUADRATIC EQUATION SOLVER....\n");
             last_operation = 12;
-            QuadraticEqSolver();
+
+            int input_choice = 1;
+            do
+            {
+                printf("Select the Input type:-\n");
+                printf("1. Values of a, b and c as Input\n2. Quadratic Equation as Input\n");
+                scanf("%d", &input_choice);
+            } while (input_choice != 1 && input_choice != 2);
+            if (input_choice == 1)
+            {
+                QuadraticEqSolver();
+            }
+            else
+            {
+                printf("Work in progress, full version will be available soon...\n");
+            }
         }
 
         else if (operation == 13)
